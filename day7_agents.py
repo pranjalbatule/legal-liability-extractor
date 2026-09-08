@@ -49,15 +49,22 @@ def search_contract(search_query: str) -> str:
     
     return results['documents'][0][0]
 
-
 agent_chat = client.chats.create(
     model="gemini-3.6-flash",
     config=types.GenerateContentConfig(
-        tools=[search_contract], 
-        temperature=0.2, 
-        system_instruction="You are an elite legal AI agent. Use your tools to search the contract and warn the user of hidden liabilities in plain English."
+        tools=[search_contract],
+        temperature=0.2,
+        system_instruction="""
+        You are an elite legal AI agent. 
+        CRITICAL INSTRUCTION: To conserve system resources, you must minimize your tool usage. 
+        Do not make multiple single-word searches. Instead, combine your legal concepts into a single, broad search query. 
+        Limit yourself to a maximum of TWO searches per user question. 
+        Use the retrieved context to warn the user of hidden liabilities in plain English.
+        """
     )
 )
+
+
 
 
 user_prompt = "What happens to my bank account if I accidentally leak information to a competitor?"
@@ -68,3 +75,15 @@ response = agent_chat.send_message(user_prompt)
 
 print("\n--- Agent Final Answer ---")
 print(response.text)
+
+print("\n" + "="*50 + "\n")
+
+
+follow_up_prompt = "Does that penalty still apply if the leak was a complete accident?"
+print(f"User Follow-Up: {follow_up_prompt}")
+
+
+follow_up_response = agent_chat.send_message(follow_up_prompt)
+
+print("\n--- Agent Follow-Up Answer ---")
+print(follow_up_response.text)
