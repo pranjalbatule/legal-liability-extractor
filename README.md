@@ -4,6 +4,9 @@ An autonomous AI agent built to parse, analyze, and extract hidden liabilities f
 
 The system replaces manual document review by utilizing local vector embeddings and an agentic reasoning loop to warn users of uncapped financial risks, aggressive audit rights, and restrictive intellectual property clauses.
 
+
+![Application Demo](demo.png)
+
 ## 🚀 Key Features
 
 *   **Autonomous Tool Calling:** The core agent dynamically generates its own search queries, deciding *when* and *what* to query in the vector database to resolve complex legal ambiguities.
