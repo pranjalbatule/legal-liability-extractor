@@ -3,7 +3,6 @@
 An autonomous AI agent built to parse, analyze, and extract hidden liabilities from legal contracts. This project demonstrates a complete Retrieval-Augmented Generation (RAG) architecture, evolving from basic API integration into a full-stack, agentic web application. 
 
 The system replaces manual document review by utilizing local vector embeddings and an agentic reasoning loop to warn users of uncapped financial risks, aggressive audit rights, and restrictive intellectual property clauses.
-![Application Demo](demo.png)
 
 ## 🚀 Key Features
 
