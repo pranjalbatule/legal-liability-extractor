@@ -3,6 +3,7 @@
 An autonomous AI agent built to parse, analyze, and extract hidden liabilities from legal contracts. This project demonstrates a complete Retrieval-Augmented Generation (RAG) architecture, evolving from basic API integration into a full-stack, agentic web application. 
 
 The system replaces manual document review by utilizing local vector embeddings and an agentic reasoning loop to warn users of uncapped financial risks, aggressive audit rights, and restrictive intellectual property clauses.
+![Application Demo](demo.png)
 
 ## 🚀 Key Features
 
@@ -20,6 +21,21 @@ The repository is structured sequentially to document the software development p
 *   **Day 5 & 6:** Integration of the PDF parser with vector ingestion and the baseline RAG generation pipeline.
 *   **Day 7:** Upgrade to multi-turn conversational memory and autonomous agentic tool calling.
 *   **Day 8 (app.py):** Final deployment of the Streamlit frontend application.
+  
+## 📐 System Architecture
+
+```mermaid
+flowchart TD
+    A[Contract PDF] --> B[PyMuPDF: In-Memory Stream Chunking]
+    B --> C[Gemini Embedding 2: 768-dim Vectors]
+    C --> D[(ChromaDB: Local Vector Store)]
+    E[User Natural Language Query] --> F[Gemini Flash Agent]
+    F -->|Autonomous Decision: Query Search Tool| D
+    D -->|Context Chunks| F
+    F --> G[Streamlit UI: Risk & Liability Breakdown]
+```
+
+
 
 ## 🛠️ Technology Stack
 
@@ -34,5 +50,5 @@ The repository is structured sequentially to document the software development p
 
 1. **Clone the repository:**
    ```bash
-   git clone [https://github.com/pranjalbatule/legal-liability-extractor.git](https://github.com/pranjalbatule/legal-liability-extractor.git)
-   cd legal-liability-extractor
+   git clone https://github.com/pranjalbatule/legal-liability-extractor.git
+cd legal-liability-extractor
